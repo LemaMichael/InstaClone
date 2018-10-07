@@ -23,15 +23,17 @@ class MainTabBarController: UITabBarController {
             }
             return
         }
+        setupViewControllers()
+    }
+    
+    func setupViewControllers() {
         let layout = UICollectionViewFlowLayout()
         let userProfile = UserProfileController(collectionViewLayout: layout)
         let navController = UINavigationController(rootViewController: userProfile)
         
         navController.tabBarItem.image = #imageLiteral(resourceName: "profile_unselected")
         navController.tabBarItem.selectedImage = #imageLiteral(resourceName: "profile_selected")
-        
         tabBar.tintColor = .black
-        
         viewControllers = [navController]
     }
 }
