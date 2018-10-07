@@ -10,6 +10,7 @@
 		4C0F7F312169027C00BD925D /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F7F302169027C00BD925D /* MainTabBarController.swift */; };
 		4C0F7F332169039500BD925D /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F7F322169039500BD925D /* UserProfileController.swift */; };
 		4C13DDB921699BED008BC602 /* UserProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C13DDB821699BED008BC602 /* UserProfileHeader.swift */; };
+		4C13DDBC2169B7C4008BC602 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C13DDBB2169B7C4008BC602 /* User.swift */; };
 		4C43B64821688A13001567D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C43B64721688A13001567D2 /* AppDelegate.swift */; };
 		4C43B64A21688A13001567D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C43B64921688A13001567D2 /* ViewController.swift */; };
 		4C43B64D21688A13001567D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C43B64B21688A13001567D2 /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 		4C0F7F302169027C00BD925D /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		4C0F7F322169039500BD925D /* UserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
 		4C13DDB821699BED008BC602 /* UserProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeader.swift; sourceTree = "<group>"; };
+		4C13DDBB2169B7C4008BC602 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4C43B64421688A13001567D2 /* InstaClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C43B64721688A13001567D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C43B64921688A13001567D2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +63,14 @@
 			path = UserProfile;
 			sourceTree = "<group>";
 		};
+		4C13DDBA2169B7B8008BC602 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4C13DDBB2169B7C4008BC602 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4C43B63B21688A13001567D2 = {
 			isa = PBXGroup;
 			children = (
@@ -82,8 +92,9 @@
 		4C43B64621688A13001567D2 /* InstaClone */ = {
 			isa = PBXGroup;
 			children = (
-				4C13DDB721699BD5008BC602 /* UserProfile */,
 				4C43B64721688A13001567D2 /* AppDelegate.swift */,
+				4C13DDB721699BD5008BC602 /* UserProfile */,
+				4C13DDBA2169B7B8008BC602 /* Model */,
 				4C0F7F302169027C00BD925D /* MainTabBarController.swift */,
 				4C43B64921688A13001567D2 /* ViewController.swift */,
 				4C43B64B21688A13001567D2 /* Main.storyboard */,
@@ -245,6 +256,7 @@
 				4C13DDB921699BED008BC602 /* UserProfileHeader.swift in Sources */,
 				4C43B64821688A13001567D2 /* AppDelegate.swift in Sources */,
 				4C0F7F332169039500BD925D /* UserProfileController.swift in Sources */,
+				4C13DDBC2169B7C4008BC602 /* User.swift in Sources */,
 				4C0F7F312169027C00BD925D /* MainTabBarController.swift in Sources */,
 				4C43B68D216891CF001567D2 /* TestInject.swift in Sources */,
 				4C43B690216892BB001567D2 /* Extensions.swift in Sources */,
