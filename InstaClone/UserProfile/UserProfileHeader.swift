@@ -74,7 +74,7 @@ class UserProfileHeader: UICollectionViewCell {
     }()
     
     let gridButton: UIButton = {
-       let button = UIButton(type: .system)
+        let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "grid"), for: .normal)
         return button
     }()

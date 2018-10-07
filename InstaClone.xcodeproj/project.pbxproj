@@ -14,6 +14,7 @@
 		4C13DDBE2169BC12008BC602 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C13DDBD2169BC12008BC602 /* LoginController.swift */; };
 		4C13DDC22169E4DB008BC602 /* PhotoSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C13DDC12169E4DB008BC602 /* PhotoSelectorController.swift */; };
 		4C2A43CE216A676C003C49C8 /* PhotoSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2A43CD216A676C003C49C8 /* PhotoSelectorCell.swift */; };
+		4C2A43D0216A6F2B003C49C8 /* PhotoSelectorHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2A43CF216A6F2B003C49C8 /* PhotoSelectorHeader.swift */; };
 		4C43B64821688A13001567D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C43B64721688A13001567D2 /* AppDelegate.swift */; };
 		4C43B64A21688A13001567D2 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C43B64921688A13001567D2 /* SignUpController.swift */; };
 		4C43B64D21688A13001567D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C43B64B21688A13001567D2 /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 		4C13DDBD2169BC12008BC602 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		4C13DDC12169E4DB008BC602 /* PhotoSelectorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorController.swift; sourceTree = "<group>"; };
 		4C2A43CD216A676C003C49C8 /* PhotoSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorCell.swift; sourceTree = "<group>"; };
+		4C2A43CF216A6F2B003C49C8 /* PhotoSelectorHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorHeader.swift; sourceTree = "<group>"; };
 		4C43B64421688A13001567D2 /* InstaClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C43B64721688A13001567D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C43B64921688A13001567D2 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			children = (
 				4C13DDC12169E4DB008BC602 /* PhotoSelectorController.swift */,
 				4C2A43CD216A676C003C49C8 /* PhotoSelectorCell.swift */,
+				4C2A43CF216A6F2B003C49C8 /* PhotoSelectorHeader.swift */,
 			);
 			path = "Add Photo";
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C2A43D0216A6F2B003C49C8 /* PhotoSelectorHeader.swift in Sources */,
 				4C2A43CE216A676C003C49C8 /* PhotoSelectorCell.swift in Sources */,
 				4C43B64A21688A13001567D2 /* SignUpController.swift in Sources */,
 				4C13DDB921699BED008BC602 /* UserProfileHeader.swift in Sources */,
