@@ -27,6 +27,7 @@ class UserSearchController: UICollectionViewController {
         super.viewDidLoad()
         collectionView.backgroundColor = .white
         collectionView.alwaysBounceVertical = true
+        collectionView.keyboardDismissMode = .onDrag
         
         setupSearchBar()
         collectionView.register(UserSearchCell.self, forCellWithReuseIdentifier: cellId)
@@ -40,7 +41,11 @@ class UserSearchController: UICollectionViewController {
             
             guard let dictionaries = snapshot.value as? [String: Any] else { return }
             dictionaries.forEach({ (key, value) in
-    
+                
+                if key == Auth.auth().currentUser?.uid {
+                    // Omit the current user
+                    return
+                }
                 guard let userDictionary = value as? [String: Any] else { return }
                 let user = User(uid: key, dictionary: userDictionary)
                 self.users.append(user)
@@ -62,6 +67,11 @@ class UserSearchController: UICollectionViewController {
         let navBar = navigationController?.navigationBar
         searchBar.anchor(top: navBar?.topAnchor, bottom: navBar?.bottomAnchor, left: navBar?.leftAnchor, right: navBar?.rightAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 8, paddingRight: 8, width: 0, height: 0)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        searchBar.isHidden = false
+    }
 }
 
 // MARK: UICollectionViewDataSource
@@ -74,6 +84,18 @@ extension UserSearchController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! UserSearchCell
         cell.user = self.filteredUsers[indexPath.item]
         return cell
+    }
+}
+
+// MARK: UICollectionViewDelegate
+extension UserSearchController {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        searchBar.isHidden = true
+        searchBar.resignFirstResponder()
+        let user = filteredUsers[indexPath.item]
+        let userProfileController = UserProfileController(collectionViewLayout: UICollectionViewFlowLayout())
+        userProfileController.user = user
+        navigationController?.pushViewController(userProfileController, animated: true)
     }
 }
 
