@@ -14,24 +14,12 @@ class UserProfilePhotoCell: UICollectionViewCell {
     var post: Post? {
         didSet {
             guard let imageURL = post?.imageURL else { return }
-            guard let URL = URL(string: imageURL) else { return }
-            URLSession.shared.dataTask(with: URL) { (data, response, error) in
-                
-                if let error = error {
-                    print("Failed to fetch post image: ", error)
-                }
-                
-                guard let imageData = data else { return }
-                let photoImage = UIImage(data: imageData)
-                DispatchQueue.main.async {
-                    self.photoImageView.image = photoImage
-                }
-                }.resume()
+            photoImageView.loadImage(urlString: imageURL)
         }
     }
     
-    let photoImageView: UIImageView = {
-        let imageView = UIImageView()
+    let photoImageView: CustomImageView = {
+        let imageView = CustomImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
