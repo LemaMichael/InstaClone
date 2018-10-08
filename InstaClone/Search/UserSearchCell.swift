@@ -10,9 +10,16 @@ import UIKit
 
 class UserSearchCell: UICollectionViewCell {
     
+    var user: User? {
+        didSet {
+            usernameLabel.text = user?.username
+            guard let profileImageURL = user?.profileImageUrl else { return }
+            profileImageView.loadImage(urlString: profileImageURL)
+        }
+    }
+    
     let profileImageView: CustomImageView = {
         let imageView = CustomImageView()
-        imageView.backgroundColor = .green
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
@@ -27,7 +34,7 @@ class UserSearchCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-    
+        
         let separatorView = UIView()
         separatorView.backgroundColor = UIColor(white: 0, alpha: 0.5)
         
@@ -40,7 +47,7 @@ class UserSearchCell: UICollectionViewCell {
         
         usernameLabel.anchor(top: topAnchor, bottom: bottomAnchor, left: profileImageView.rightAnchor, right: rightAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 8, paddingRight: 0, width: 0, height: 0)
         
-       separatorView.anchor(top: nil, bottom: bottomAnchor, left: usernameLabel.leftAnchor, right: rightAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 0, height: 0.5)
+        separatorView.anchor(top: nil, bottom: bottomAnchor, left: usernameLabel.leftAnchor, right: rightAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 0, height: 0.5)
     }
     
     required init?(coder aDecoder: NSCoder) {
