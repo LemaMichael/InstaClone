@@ -9,11 +9,13 @@
 import Foundation
 
 struct User {
+    let uid: String
     let username: String
     let profileImageUrl: String
     
-    init(dictionary: [String: Any]) {
+    init(uid: String, dictionary: [String: Any]) {
         self.username = dictionary["username"] as? String ?? ""
         self.profileImageUrl = dictionary["profileImageURL"] as? String ?? ""
+        self.uid = uid
     }
 }

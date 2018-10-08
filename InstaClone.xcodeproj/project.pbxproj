@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C0CAE42216BF44500CAB2A5 /* FirebaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0CAE41216BF44500CAB2A5 /* FirebaseExtension.swift */; };
 		4C0D7F79216B9C5400269DF8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D7F78216B9C5400269DF8 /* Post.swift */; };
 		4C0D7F7B216B9F5300269DF8 /* UserProfilePhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D7F7A216B9F5300269DF8 /* UserProfilePhotoCell.swift */; };
 		4C0D7F7D216BA50400269DF8 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D7F7C216BA50400269DF8 /* CustomImageView.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C0CAE41216BF44500CAB2A5 /* FirebaseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseExtension.swift; sourceTree = "<group>"; };
 		4C0D7F78216B9C5400269DF8 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		4C0D7F7A216B9F5300269DF8 /* UserProfilePhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilePhotoCell.swift; sourceTree = "<group>"; };
 		4C0D7F7C216BA50400269DF8 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				4C43B68C216891CF001567D2 /* TestInject.swift */,
 				4C43B68F216892BB001567D2 /* Extensions.swift */,
 				4C0D7F7C216BA50400269DF8 /* CustomImageView.swift */,
+				4C0CAE41216BF44500CAB2A5 /* FirebaseExtension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				4C43B68D216891CF001567D2 /* TestInject.swift in Sources */,
 				4C43B690216892BB001567D2 /* Extensions.swift in Sources */,
 				4C13DDC22169E4DB008BC602 /* PhotoSelectorController.swift in Sources */,
+				4C0CAE42216BF44500CAB2A5 /* FirebaseExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
