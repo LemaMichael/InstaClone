@@ -13,8 +13,14 @@ class HomePostCell: UICollectionViewCell {
     
     var post: Post? {
         didSet {
-            guard let imageURL = post?.imageURL else { return }
-            photoImageView.loadImage(urlString: imageURL)
+            guard let photoImageURL = post?.imageURL else { return }
+            photoImageView.loadImage(urlString: photoImageURL)
+            
+            usernameLabel.text = post?.user.username
+            guard let profileImageURL = post?.user.profileImageUrl else { return }
+            userProfileImageView.loadImage(urlString: profileImageURL)
+            
+            setupAttributedCaption()
         }
     }
     
@@ -22,7 +28,6 @@ class HomePostCell: UICollectionViewCell {
         let imageView = CustomImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.backgroundColor = .blue
         return imageView
     }()
     
@@ -71,15 +76,19 @@ class HomePostCell: UICollectionViewCell {
     let captionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
+        return label
+    }()
+    
+    func setupAttributedCaption() {
+        guard let post = self.post else { return }
         
-        let attributedText = NSMutableAttributedString(string: "Username", attributes: [.font: UIFont.boldSystemFont(ofSize: 14)])
-        attributedText.append(NSAttributedString(string: " Some caption belongs here that is very long and should wrap around to the next line in the label", attributes: [.font : UIFont.systemFont(ofSize: 14)]))
+        let attributedText = NSMutableAttributedString(string: post.user.username, attributes: [.font: UIFont.boldSystemFont(ofSize: 14)])
+        attributedText.append(NSAttributedString(string: " \(post.caption)", attributes: [.font : UIFont.systemFont(ofSize: 14)]))
         attributedText.append(NSAttributedString(string: "\n\n", attributes: [.font : UIFont.systemFont(ofSize: 4)]))
         attributedText.append(NSAttributedString(string: "1 week ago", attributes: [.font : UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.gray]))
         
-        label.attributedText = attributedText
-        return label
-    }()
+        captionLabel.attributedText = attributedText
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
