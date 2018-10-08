@@ -10,6 +10,8 @@
 		4C0D7F79216B9C5400269DF8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D7F78216B9C5400269DF8 /* Post.swift */; };
 		4C0D7F7B216B9F5300269DF8 /* UserProfilePhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D7F7A216B9F5300269DF8 /* UserProfilePhotoCell.swift */; };
 		4C0D7F7D216BA50400269DF8 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D7F7C216BA50400269DF8 /* CustomImageView.swift */; };
+		4C0D7F80216BB17200269DF8 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D7F7F216BB17200269DF8 /* HomeController.swift */; };
+		4C0D7F82216BB28800269DF8 /* HomePostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D7F81216BB28800269DF8 /* HomePostCell.swift */; };
 		4C0F7F312169027C00BD925D /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F7F302169027C00BD925D /* MainTabBarController.swift */; };
 		4C0F7F332169039500BD925D /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F7F322169039500BD925D /* UserProfileController.swift */; };
 		4C13DDB921699BED008BC602 /* UserProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C13DDB821699BED008BC602 /* UserProfileHeader.swift */; };
@@ -34,6 +36,8 @@
 		4C0D7F78216B9C5400269DF8 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		4C0D7F7A216B9F5300269DF8 /* UserProfilePhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilePhotoCell.swift; sourceTree = "<group>"; };
 		4C0D7F7C216BA50400269DF8 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		4C0D7F7F216BB17200269DF8 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		4C0D7F81216BB28800269DF8 /* HomePostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePostCell.swift; sourceTree = "<group>"; };
 		4C0F7F302169027C00BD925D /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		4C0F7F322169039500BD925D /* UserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
 		4C13DDB821699BED008BC602 /* UserProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeader.swift; sourceTree = "<group>"; };
@@ -70,6 +74,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C0D7F7E216BB16000269DF8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				4C0D7F7F216BB17200269DF8 /* HomeController.swift */,
+				4C0D7F81216BB28800269DF8 /* HomePostCell.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		4C13DDB721699BD5008BC602 /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +146,7 @@
 				4C43B64721688A13001567D2 /* AppDelegate.swift */,
 				4C13DDC02169E4B7008BC602 /* Add Photo */,
 				4C13DDBF2169BC17008BC602 /* Login */,
+				4C0D7F7E216BB16000269DF8 /* Home */,
 				4C13DDB721699BD5008BC602 /* UserProfile */,
 				4C13DDBA2169B7B8008BC602 /* Model */,
 				4C0F7F302169027C00BD925D /* MainTabBarController.swift */,
@@ -300,11 +314,13 @@
 				4C0D7F7B216B9F5300269DF8 /* UserProfilePhotoCell.swift in Sources */,
 				4C0D7F79216B9C5400269DF8 /* Post.swift in Sources */,
 				4C0F7F332169039500BD925D /* UserProfileController.swift in Sources */,
+				4C0D7F80216BB17200269DF8 /* HomeController.swift in Sources */,
 				4C13DDBE2169BC12008BC602 /* LoginController.swift in Sources */,
 				4C0D7F7D216BA50400269DF8 /* CustomImageView.swift in Sources */,
 				4C13DDBC2169B7C4008BC602 /* User.swift in Sources */,
 				4C2A43D2216A7C8C003C49C8 /* SharePhotoController.swift in Sources */,
 				4C0F7F312169027C00BD925D /* MainTabBarController.swift in Sources */,
+				4C0D7F82216BB28800269DF8 /* HomePostCell.swift in Sources */,
 				4C43B68D216891CF001567D2 /* TestInject.swift in Sources */,
 				4C43B690216892BB001567D2 /* Extensions.swift in Sources */,
 				4C13DDC22169E4DB008BC602 /* PhotoSelectorController.swift in Sources */,
