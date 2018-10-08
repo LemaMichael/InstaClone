@@ -77,8 +77,8 @@
 		4C0D7F7E216BB16000269DF8 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				4C0D7F7F216BB17200269DF8 /* HomeController.swift */,
 				4C0D7F81216BB28800269DF8 /* HomePostCell.swift */,
+				4C0D7F7F216BB17200269DF8 /* HomeController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
