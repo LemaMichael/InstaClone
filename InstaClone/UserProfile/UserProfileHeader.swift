@@ -28,8 +28,57 @@ class UserProfileHeader: UICollectionViewCell {
         if currentLoggedInUserId == userId {
             // edit profile
         } else {
-            editProfileFollowButton.setTitle("Follow", for: .normal)
+            // Check if following
+            Database.database().reference().child("following").child(currentLoggedInUserId).child(userId).observeSingleEvent(of: .value, with: { (snapshot) in
+                if let isFollowing = snapshot.value as? Int, isFollowing == 1 {
+                    self.editProfileFollowButton.setTitle("Unfollow", for: .normal)
+                } else {
+                    self.setupFollowStyle()
+                }
+            }) { (error) in
+                print("Failed to check if following: ", error)
+                
+            }
+            
         }
+    }
+    
+    
+    @objc fileprivate func handleEditProfileOrFollow() {
+        guard let currentLoggedInUserId = Auth.auth().currentUser?.uid else { return }
+        guard let userId = user?.uid else { return }
+        
+        if editProfileFollowButton.titleLabel?.text == "Unfollow" {
+            Database.database().reference().child("following").child(currentLoggedInUserId).child(userId).removeValue { (error, reference) in
+                if let error = error {
+                    print("Failed to unfollow user: ", error)
+                    return
+                }
+                print("Successfully unfollowed user", self.user?.username ?? "")
+                self.setupFollowStyle()
+            }
+        } else {
+            // Follow
+            let ref = Database.database().reference().child("following").child(currentLoggedInUserId)
+            let values = [userId: 1]
+            ref.updateChildValues(values) { (error, reference) in
+                if let err = error {
+                    print("Failed to follow user: ", err)
+                    return
+                }
+                print("Successfully followed user: ", self.user?.username ?? "")
+                self.editProfileFollowButton.setTitle("Unfollow", for: .normal)
+                self.editProfileFollowButton.backgroundColor = .white
+                self.editProfileFollowButton.setTitleColor(.black, for: .normal)
+            }
+        }
+    }
+    
+    fileprivate func setupFollowStyle() {
+        self.editProfileFollowButton.setTitle("Follow", for: .normal)
+        self.editProfileFollowButton.backgroundColor = UIColor.rgb(red: 17, green: 154, blue: 237)
+        self.editProfileFollowButton.setTitleColor(.white, for: .normal)
+        self.editProfileFollowButton.layer.borderColor = UIColor(white: 0, alpha: 0.2).cgColor
     }
     
     let profileImageView: CustomImageView = {
@@ -88,19 +137,6 @@ class UserProfileHeader: UICollectionViewCell {
         button.addTarget(self, action: #selector(handleEditProfileOrFollow), for: .touchUpInside)
         return button
     }()
-    
-    @objc fileprivate func handleEditProfileOrFollow() {
-        guard let currentLoggedInUserId = Auth.auth().currentUser?.uid else { return }
-        let ref = Database.database().reference().child("following").child(currentLoggedInUserId)
-        guard let userId = user?.uid else { return }
-        let values = [userId: 1]
-        ref.updateChildValues(values) { (error, reference) in
-            if let err = error {
-                print("Failed to follow user: ", err)
-            }
-            print("Successfully followed user: ", self.user?.username ?? "")
-        }
-    }
     
     let gridButton: UIButton = {
         let button = UIButton(type: .system)
