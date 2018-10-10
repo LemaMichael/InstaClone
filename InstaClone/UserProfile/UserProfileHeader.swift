@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class UserProfileHeader: UICollectionViewCell {
     
@@ -15,6 +16,19 @@ class UserProfileHeader: UICollectionViewCell {
             guard let profileImageUrl = user?.profileImageUrl else { return }
             profileImageView.loadImage(urlString: profileImageUrl)
             usernameLabel.text = user?.username
+            
+            setupEditFollowButton()
+        }
+    }
+    
+    fileprivate func setupEditFollowButton() {
+        guard let currentLoggedInUserId = Auth.auth().currentUser?.uid else { return }
+        guard let userId = user?.uid else { return }
+        
+        if currentLoggedInUserId == userId {
+            // edit profile
+        } else {
+            editProfileFollowButton.setTitle("Follow", for: .normal)
         }
     }
     
@@ -63,7 +77,7 @@ class UserProfileHeader: UICollectionViewCell {
         return label
     }()
     
-    let editProfileButton: UIButton = {
+    lazy var editProfileFollowButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Edit Profile", for: .normal)
         button.setTitleColor(.black, for: .normal)
@@ -71,8 +85,22 @@ class UserProfileHeader: UICollectionViewCell {
         button.layer.borderColor = UIColor.lightGray.cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 3
+        button.addTarget(self, action: #selector(handleEditProfileOrFollow), for: .touchUpInside)
         return button
     }()
+    
+    @objc fileprivate func handleEditProfileOrFollow() {
+        guard let currentLoggedInUserId = Auth.auth().currentUser?.uid else { return }
+        let ref = Database.database().reference().child("following").child(currentLoggedInUserId)
+        guard let userId = user?.uid else { return }
+        let values = [userId: 1]
+        ref.updateChildValues(values) { (error, reference) in
+            if let err = error {
+                print("Failed to follow user: ", err)
+            }
+            print("Successfully followed user: ", self.user?.username ?? "")
+        }
+    }
     
     let gridButton: UIButton = {
         let button = UIButton(type: .system)
@@ -97,7 +125,7 @@ class UserProfileHeader: UICollectionViewCell {
         super.init(frame: frame)
         addSubview(profileImageView)
         addSubview(usernameLabel)
-        addSubview(editProfileButton)
+        addSubview(editProfileFollowButton)
         
         profileImageView.anchor(top: topAnchor, bottom: nil, left: leftAnchor, right: nil, paddingTop: 12, paddingBottom: 0, paddingLeft: 12, paddingRight: 0, width: 80, height: 80)
         profileImageView.layer.cornerRadius = 80 / 2
@@ -109,7 +137,7 @@ class UserProfileHeader: UICollectionViewCell {
         
         setupUserStats()
         
-        editProfileButton.anchor(top: postsLabel.bottomAnchor, bottom: nil, left: postsLabel.leftAnchor, right: followingLabel.rightAnchor, paddingTop: 2, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 0, height: 34)
+        editProfileFollowButton.anchor(top: postsLabel.bottomAnchor, bottom: nil, left: postsLabel.leftAnchor, right: followingLabel.rightAnchor, paddingTop: 2, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 0, height: 34)
     }
     
     fileprivate func setupBottomToolbar() {
