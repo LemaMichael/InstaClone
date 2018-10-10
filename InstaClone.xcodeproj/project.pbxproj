@@ -19,6 +19,7 @@
 		4C13DDBC2169B7C4008BC602 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C13DDBB2169B7C4008BC602 /* User.swift */; };
 		4C13DDBE2169BC12008BC602 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C13DDBD2169BC12008BC602 /* LoginController.swift */; };
 		4C13DDC22169E4DB008BC602 /* PhotoSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C13DDC12169E4DB008BC602 /* PhotoSelectorController.swift */; };
+		4C24AF26216E5448001C9867 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C24AF25216E5448001C9867 /* DateExtension.swift */; };
 		4C2A43CE216A676C003C49C8 /* PhotoSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2A43CD216A676C003C49C8 /* PhotoSelectorCell.swift */; };
 		4C2A43D0216A6F2B003C49C8 /* PhotoSelectorHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2A43CF216A6F2B003C49C8 /* PhotoSelectorHeader.swift */; };
 		4C2A43D2216A7C8C003C49C8 /* SharePhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2A43D1216A7C8C003C49C8 /* SharePhotoController.swift */; };
@@ -48,6 +49,7 @@
 		4C13DDBB2169B7C4008BC602 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4C13DDBD2169BC12008BC602 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		4C13DDC12169E4DB008BC602 /* PhotoSelectorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorController.swift; sourceTree = "<group>"; };
+		4C24AF25216E5448001C9867 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		4C2A43CD216A676C003C49C8 /* PhotoSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorCell.swift; sourceTree = "<group>"; };
 		4C2A43CF216A6F2B003C49C8 /* PhotoSelectorHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorHeader.swift; sourceTree = "<group>"; };
 		4C2A43D1216A7C8C003C49C8 /* SharePhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePhotoController.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				4C43B68F216892BB001567D2 /* Extensions.swift */,
 				4C0D7F7C216BA50400269DF8 /* CustomImageView.swift */,
 				4C0CAE41216BF44500CAB2A5 /* FirebaseExtension.swift */,
+				4C24AF25216E5448001C9867 /* DateExtension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				4C0F7F312169027C00BD925D /* MainTabBarController.swift in Sources */,
 				4C0D7F82216BB28800269DF8 /* HomePostCell.swift in Sources */,
 				4C43B68D216891CF001567D2 /* TestInject.swift in Sources */,
+				4C24AF26216E5448001C9867 /* DateExtension.swift in Sources */,
 				4C43B690216892BB001567D2 /* Extensions.swift in Sources */,
 				4C13DDC22169E4DB008BC602 /* PhotoSelectorController.swift in Sources */,
 				4C331A84216C0A9200F73E86 /* UserSearchCell.swift in Sources */,

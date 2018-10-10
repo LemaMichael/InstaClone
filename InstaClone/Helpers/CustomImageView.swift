@@ -29,6 +29,7 @@ class CustomImageView: UIImageView {
             
             if let error = error {
                 print("Failed to fetch image: ", error)
+                return
             }
             
             if URL.absoluteString != self.lastURLUsedToLoadImage {

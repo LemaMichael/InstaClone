@@ -13,14 +13,15 @@ class HomePostCell: UICollectionViewCell {
     
     var post: Post? {
         didSet {
-            guard let photoImageURL = post?.imageURL else { return }
-            photoImageView.loadImage(urlString: photoImageURL)
+            guard let postImageURL = post?.imageURL else { return }
+            photoImageView.loadImage(urlString: postImageURL)
             
             usernameLabel.text = post?.user.username
             guard let profileImageURL = post?.user.profileImageUrl else { return }
             userProfileImageView.loadImage(urlString: profileImageURL)
             
-            setupAttributedCaption()
+            
+            self.setupAttributedCaption()
         }
     }
     
@@ -85,7 +86,9 @@ class HomePostCell: UICollectionViewCell {
         let attributedText = NSMutableAttributedString(string: post.user.username, attributes: [.font: UIFont.boldSystemFont(ofSize: 14)])
         attributedText.append(NSAttributedString(string: " \(post.caption)", attributes: [.font : UIFont.systemFont(ofSize: 14)]))
         attributedText.append(NSAttributedString(string: "\n\n", attributes: [.font : UIFont.systemFont(ofSize: 4)]))
-        attributedText.append(NSAttributedString(string: "1 week ago", attributes: [.font : UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.gray]))
+        
+        let timeAgoDisplay = post.creationDate.timeAgoDisplay()
+        attributedText.append(NSAttributedString(string: timeAgoDisplay, attributes: [.font : UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.gray]))
         
         captionLabel.attributedText = attributedText
     }
