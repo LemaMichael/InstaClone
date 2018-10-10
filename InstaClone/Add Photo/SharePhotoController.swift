@@ -11,6 +11,8 @@ import Firebase
 
 class SharePhotoController: UIViewController {
     
+    static let updateFeedNotificationName = NSNotification.Name(rawValue: "UpdateFeed")
+    
     var selectedImage: UIImage? {
         didSet {
             self.imageView.image = selectedImage
@@ -103,6 +105,8 @@ class SharePhotoController: UIViewController {
             }
             print("Successfully saved post to database")
             self.dismiss(animated: true, completion: nil)
+            
+            NotificationCenter.default.post(name: SharePhotoController.updateFeedNotificationName, object: nil)
         }
     }
     
