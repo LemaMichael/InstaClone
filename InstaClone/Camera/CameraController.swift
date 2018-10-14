@@ -83,6 +83,10 @@ class CameraController: UIViewController {
         
         dismissButton.anchor(top: topLayoutGuide.bottomAnchor, bottom: nil, left: nil, right: view.rightAnchor, paddingTop: 12, paddingBottom: 0, paddingLeft: 0, paddingRight: 12, width: 50, height: 50)
     }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 }
 
 extension CameraController: AVCapturePhotoCaptureDelegate {
@@ -93,10 +97,11 @@ extension CameraController: AVCapturePhotoCaptureDelegate {
         let previewImage = UIImage(data: imageData!)
         print("Finished Processing Photo sample buffer...")
         
-        let previewImageView = UIImageView(image: previewImage)
-        view.addSubview(previewImageView)
-        previewImageView.anchor(top: view.topAnchor, bottom: view.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 0, height: 0)
+        let containerView = PreviewPhotoContainerView()
+        containerView.previewImageView.image = previewImage
         
+        view.addSubview(containerView)
+        containerView.anchor(top: view.topAnchor, bottom: view.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 0, height: 0)
     }
     
 }
