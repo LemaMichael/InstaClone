@@ -35,6 +35,7 @@
 		4C43B690216892BB001567D2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C43B68F216892BB001567D2 /* Extensions.swift */; };
 		4C43B69221689885001567D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C43B69121689885001567D2 /* GoogleService-Info.plist */; };
 		4C9458C82173EFF100E55ECF /* PreviewPhotoContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9458C72173EFF100E55ECF /* PreviewPhotoContainerView.swift */; };
+		4CF3885D21740050004A954C /* CommentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF3885C21740050004A954C /* CommentsController.swift */; };
 		4DE0B6F68044D0B621FBFDA7 /* Pods_InstaClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5CC3D7612215B6F7043AE42 /* Pods_InstaClone.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		4C43B68F216892BB001567D2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		4C43B69121689885001567D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4C9458C72173EFF100E55ECF /* PreviewPhotoContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPhotoContainerView.swift; sourceTree = "<group>"; };
+		4CF3885C21740050004A954C /* CommentsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsController.swift; sourceTree = "<group>"; };
 		8D4DBD8176F4BA75A25D70AC /* Pods-InstaClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaClone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstaClone/Pods-InstaClone.debug.xcconfig"; sourceTree = "<group>"; };
 		A5CC3D7612215B6F7043AE42 /* Pods_InstaClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstaClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC6A69DD5C508B4CDE5F393E /* Pods-InstaClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaClone.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstaClone/Pods-InstaClone.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			children = (
 				4C0D7F81216BB28800269DF8 /* HomePostCell.swift */,
 				4C0D7F7F216BB17200269DF8 /* HomeController.swift */,
+				4CF3885C21740050004A954C /* CommentsController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				4C43B690216892BB001567D2 /* Extensions.swift in Sources */,
 				4C9458C82173EFF100E55ECF /* PreviewPhotoContainerView.swift in Sources */,
 				4C13DDC22169E4DB008BC602 /* PhotoSelectorController.swift in Sources */,
+				4CF3885D21740050004A954C /* CommentsController.swift in Sources */,
 				4C331A84216C0A9200F73E86 /* UserSearchCell.swift in Sources */,
 				4C0CAE42216BF44500CAB2A5 /* FirebaseExtension.swift in Sources */,
 			);

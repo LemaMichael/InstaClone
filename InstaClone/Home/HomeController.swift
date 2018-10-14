@@ -113,6 +113,7 @@ extension HomeController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomePostCell
         if indexPath.item < posts.count {
             cell.post = posts[indexPath.item]
+            cell.delegate = self
         }
         return cell
     }
@@ -128,4 +129,16 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
         
         return CGSize(width: view.frame.width, height: height)
     }
+}
+
+// MARK: HomePostCellDelegate
+extension HomeController: HomePostCellDelegate {
+    
+    func didTapComment(post: Post) {
+        print("Message coming from home controller")
+        print(post.caption)
+        let commentsController = CommentsController(collectionViewLayout: UICollectionViewFlowLayout())
+        navigationController?.pushViewController(commentsController, animated: true)
+    }
+  
 }
