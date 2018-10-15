@@ -9,11 +9,14 @@
 import UIKit
 
 struct Comment {
+    
+    let user: User
     let text: String
     let uid: String
     
-    init(dictionary: [String: Any]) {
+    init(user: User, dictionary: [String: Any]) {
         self.text = dictionary["text"] as? String ?? ""
         self.uid = dictionary["uid"] as? String ?? ""
+        self.user = user
     }
 }
