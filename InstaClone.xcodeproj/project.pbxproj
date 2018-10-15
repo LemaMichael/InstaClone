@@ -36,6 +36,8 @@
 		4C43B69221689885001567D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C43B69121689885001567D2 /* GoogleService-Info.plist */; };
 		4C9458C82173EFF100E55ECF /* PreviewPhotoContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9458C72173EFF100E55ECF /* PreviewPhotoContainerView.swift */; };
 		4CF3885D21740050004A954C /* CommentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF3885C21740050004A954C /* CommentsController.swift */; };
+		4CF3885F217411B2004A954C /* CommentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF3885E217411B2004A954C /* CommentsCell.swift */; };
+		4CF388612174197D004A954C /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF388602174197D004A954C /* Comment.swift */; };
 		4DE0B6F68044D0B621FBFDA7 /* Pods_InstaClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5CC3D7612215B6F7043AE42 /* Pods_InstaClone.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +73,8 @@
 		4C43B69121689885001567D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4C9458C72173EFF100E55ECF /* PreviewPhotoContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPhotoContainerView.swift; sourceTree = "<group>"; };
 		4CF3885C21740050004A954C /* CommentsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsController.swift; sourceTree = "<group>"; };
+		4CF3885E217411B2004A954C /* CommentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsCell.swift; sourceTree = "<group>"; };
+		4CF388602174197D004A954C /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		8D4DBD8176F4BA75A25D70AC /* Pods-InstaClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaClone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstaClone/Pods-InstaClone.debug.xcconfig"; sourceTree = "<group>"; };
 		A5CC3D7612215B6F7043AE42 /* Pods_InstaClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstaClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC6A69DD5C508B4CDE5F393E /* Pods-InstaClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaClone.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstaClone/Pods-InstaClone.release.xcconfig"; sourceTree = "<group>"; };
@@ -94,6 +98,7 @@
 				4C0D7F81216BB28800269DF8 /* HomePostCell.swift */,
 				4C0D7F7F216BB17200269DF8 /* HomeController.swift */,
 				4CF3885C21740050004A954C /* CommentsController.swift */,
+				4CF3885E217411B2004A954C /* CommentsCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -113,6 +118,7 @@
 			children = (
 				4C13DDBB2169B7C4008BC602 /* User.swift */,
 				4C0D7F78216B9C5400269DF8 /* Post.swift */,
+				4CF388602174197D004A954C /* Comment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -358,6 +364,7 @@
 				4C0D7F7D216BA50400269DF8 /* CustomImageView.swift in Sources */,
 				4C13DDBC2169B7C4008BC602 /* User.swift in Sources */,
 				4C2A43D2216A7C8C003C49C8 /* SharePhotoController.swift in Sources */,
+				4CF3885F217411B2004A954C /* CommentsCell.swift in Sources */,
 				4C0F7F312169027C00BD925D /* MainTabBarController.swift in Sources */,
 				4C0D7F82216BB28800269DF8 /* HomePostCell.swift in Sources */,
 				4C43B68D216891CF001567D2 /* TestInject.swift in Sources */,
@@ -367,6 +374,7 @@
 				4C13DDC22169E4DB008BC602 /* PhotoSelectorController.swift in Sources */,
 				4CF3885D21740050004A954C /* CommentsController.swift in Sources */,
 				4C331A84216C0A9200F73E86 /* UserSearchCell.swift in Sources */,
+				4CF388612174197D004A954C /* Comment.swift in Sources */,
 				4C0CAE42216BF44500CAB2A5 /* FirebaseExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
