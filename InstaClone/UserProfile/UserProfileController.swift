@@ -17,6 +17,7 @@ class UserProfileController: UICollectionViewController {
     let headerId = "headerId"
     let homePostCellId = "homePostCellId"
     var isGridView = true
+    var isFinishedPaging = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,47 @@ class UserProfileController: UICollectionViewController {
         collectionView.register(HomePostCell.self, forCellWithReuseIdentifier: homePostCellId)
         
         setupLogOutButton()
+    }
+    
+    fileprivate func paginatePosts() {
+        print("Start paging for more posts.")
+        
+        guard let uid = self.user?.uid else { return }
+        let ref = Database.database().reference().child("posts").child(uid)
+        
+        var query = ref.queryOrderedByKey()
+        
+        if posts.count > 0 {
+            let value = posts.last?.id
+            query = query.queryStarting(atValue: value)
+        }
+        
+        query.queryLimited(toFirst: 6).observeSingleEvent(of: .value, with: { (snapshot) in
+            guard var allObjects = snapshot.children.allObjects as? [DataSnapshot]  else { return }
+            
+            if allObjects.count < 6 {
+                self.isFinishedPaging = true
+            }
+            if self.posts.count > 0 {
+                // This prevents from redisplaying the 6th image again.
+                allObjects.removeFirst()
+            }
+            
+            guard let user = self.user else { return }
+            allObjects.forEach({ (snapshot) in
+                //print(snapshot.key)
+                guard let dictionary = snapshot.value as? [String: Any] else { return }
+                var post = Post(user: user, dictionary: dictionary)
+                post.id = snapshot.key
+                self.posts.append(post)
+            })
+            self.posts.forEach({ (post) in
+                print(post.id)
+            })
+            self.collectionView.reloadData()
+        }) { (error) in
+            print("Faild to paginate for posts: ", error)
+        }
     }
     
     fileprivate func fetchOrderedPosts() {
@@ -78,7 +120,9 @@ class UserProfileController: UICollectionViewController {
             self.user = user
             self.navigationItem.title = self.user?.username
             self.collectionView.reloadData()
-            self.fetchOrderedPosts()
+            //self.fetchOrderedPosts()
+            self.paginatePosts()
+
         }
     }
 }
@@ -111,6 +155,13 @@ extension UserProfileController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        // Paginate call
+        if indexPath.item == self.posts.count - 1 && !isFinishedPaging {
+            print("Paginatinf now!")
+            paginatePosts()
+        }
+        
         if isGridView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! UserProfilePhotoCell
             cell.post = posts[indexPath.item]
