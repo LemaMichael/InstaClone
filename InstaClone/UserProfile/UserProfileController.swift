@@ -33,24 +33,24 @@ class UserProfileController: UICollectionViewController {
     
     fileprivate func paginatePosts() {
         print("Start paging for more posts.")
-        
         guard let uid = self.user?.uid else { return }
         let ref = Database.database().reference().child("posts").child(uid)
         
-        var query = ref.queryOrderedByKey()
+        var query = ref.queryOrdered(byChild: "creationDate")
         
         if posts.count > 0 {
-            let value = posts.last?.id
-            query = query.queryStarting(atValue: value)
+            let value = posts.last?.creationDate.timeIntervalSince1970
+            query = query.queryEnding(atValue: value)
         }
         
-        query.queryLimited(toFirst: 6).observeSingleEvent(of: .value, with: { (snapshot) in
+        query.queryLimited(toLast: 6).observeSingleEvent(of: .value, with: { (snapshot) in
             guard var allObjects = snapshot.children.allObjects as? [DataSnapshot]  else { return }
+            allObjects.reverse()
             
             if allObjects.count < 6 {
                 self.isFinishedPaging = true
             }
-            if self.posts.count > 0 {
+            if self.posts.count > 0 && allObjects.count > 0 {
                 // This prevents from redisplaying the 6th image again.
                 allObjects.removeFirst()
             }
@@ -64,7 +64,7 @@ class UserProfileController: UICollectionViewController {
                 self.posts.append(post)
             })
             self.posts.forEach({ (post) in
-                print(post.id)
+                print(post.id ?? "")
             })
             self.collectionView.reloadData()
         }) { (error) in
@@ -158,7 +158,7 @@ extension UserProfileController {
         
         // Paginate call
         if indexPath.item == self.posts.count - 1 && !isFinishedPaging {
-            print("Paginatinf now!")
+            print("Paginating now!")
             paginatePosts()
         }
         
